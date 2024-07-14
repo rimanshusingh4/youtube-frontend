@@ -21,7 +21,7 @@ export const createAccount = createAsyncThunk("register", async (data) => {
 
     try {
         const response = await axiosInstance.post("/users/register", formData);
-        console.log("Authslice responce data from created account",response.data);
+        // console.log("Authslice responce data from created account",response.data);
         toast.success("Registered successfully!!!");
         return response.data;
     } catch (error) {
