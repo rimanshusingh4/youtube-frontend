@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 function ChannelPlaylist() {
     const dispatch = useDispatch();
     const playlists = useSelector((state) => state.playlist?.playlists);
+    console.log("here playlist",playlists)
     const authId = useSelector((state) => state.auth.userData?._id);
     const userId = useSelector((state) => state.user.profileData?._id);
     const {

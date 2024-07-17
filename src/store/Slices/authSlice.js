@@ -25,7 +25,9 @@ export const createAccount = createAsyncThunk("register", async (data) => {
         toast.success("Registered successfully!!!");
         return response.data;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        if(error?.response?.statusText == "Conflict"){
+            toast.error("Username or Email already Exist");
+        }
         throw error;
     }
 });
@@ -34,9 +36,14 @@ export const userLogin = createAsyncThunk("login", async (data) => {
     try {
         const response = await axiosInstance.post("/users/login", data);
         // console.log("responce from userlogin slice", response)
+        toast.success("Happy to see You");
         return response.data.data.user;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        if(error?.response?.statusText == "Unauthorized"){
+            toast.error("Incorrect Username or Password");
+        } else if(error?.response?.statusText ==  "Not Found"){
+            toast.error("User not Exist");
+        }
         throw error;
     }
 });
@@ -87,17 +94,17 @@ export const changePassword = createAsyncThunk(
 
 export const getCurrentUser = createAsyncThunk("getCurrentUser", async () => {
     const response = await axiosInstance.get("/users/current-user");
-    // console.log("responce is here",response)
     return response.data.data;
 });
 
 export const updateAvatar = createAsyncThunk("updateAvatar", async (avatar) => {
     try {
         const response = await axiosInstance.patch(
-            "/users/update-avatar",
+            "/users/avatar",
             avatar
         );
         toast.success("Updated details successfully!!!");
+        console.log("responce from authslice",response)
         return response.data.data;
     } catch (error) {
         toast.error(error?.response?.data?.error);

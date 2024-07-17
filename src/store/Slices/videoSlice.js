@@ -32,7 +32,7 @@ export const getAllVideos = createAsyncThunk(
             const response = await axiosInstance.get(url);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.statusText);
             throw error;
         }
     }
@@ -50,7 +50,7 @@ export const publishAvideo = createAsyncThunk("publishAvideo", async (data) => {
         toast.success(response?.data?.message);
         return response.data.data;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        toast.error(error?.response?.statusText);
         throw error;
     }
 });
@@ -71,7 +71,7 @@ export const updateAVideo = createAsyncThunk(
             toast.success(response?.data?.message);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.statusText);
             throw error;
         }
     }
@@ -85,7 +85,7 @@ export const deleteAVideo = createAsyncThunk(
             toast.success(response?.data?.message);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.statusText);
             throw error;
         }
     }
@@ -98,7 +98,7 @@ export const getVideoById = createAsyncThunk(
             const response = await axiosInstance.get(`/video/v/${videoId}`);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.statusText);
             throw error;
         }
     }
@@ -114,7 +114,7 @@ export const togglePublishStatus = createAsyncThunk(
             toast.success(response.data.message);
             return response.data.data.isPublished;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.statusText);
             throw error;
         }
     }

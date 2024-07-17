@@ -8,7 +8,6 @@ function ChannelTweets() {
     const authId = useSelector((state) => state.auth?.userData?._id);
     const userId = useSelector((state) => state.user?.profileData?._id);
     const tweets = useSelector((state) => state.tweet?.tweets);
-
     useEffect(() => {
         if (userId) dispatch(getUserTweets(userId));
     }, [dispatch, userId]);
@@ -19,7 +18,7 @@ function ChannelTweets() {
             {tweets?.map((tweet) => (
                 <TweetsList
                     key={tweet?._id}
-                    avatar={tweet?.ownerDetails?.avatar.url}
+                    avatar={tweet?.ownerDetails?.avatar}
                     content={tweet?.content}
                     createdAt={tweet?.createdAt}
                     likesCount={tweet?.likesCount}

@@ -75,7 +75,7 @@ function ChannelVideos() {
                 {videos?.map((video) => (
                     <VideoList
                         key={video._id}
-                        avatar={video.avatar?.url}
+                        avatar={video.ownerDetails.avatar}
                         duration={video.duration}
                         title={video.title}
                         thumbnail={video.thumbnail?.url}

@@ -37,7 +37,8 @@ function UploadingVideo({
                                 </h1>
                             )}
                             <span className="text-xs text-slate-400">
-                                Track your video uploading process.
+                                Track your video uploading process.<br></br>
+                                <b>Don't Close Pop-up Untill Video uploded Successfully.</b>
                             </span>
                         </div>
                         <IoCloseCircleOutline
