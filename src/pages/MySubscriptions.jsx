@@ -16,7 +16,6 @@ function MySubscriptions() {
         }
     }, [dispatch, subscriberId]);
     window.scrollTo(0, 0);
-    
     return (
         <>
             <div className="flex gap-2 p-2 text-white items-center bg-[#222222]">
@@ -26,12 +25,12 @@ function MySubscriptions() {
                         className="flex flex-col items-center overflow-x-scroll"
                     >
                         <Avatar
-                            src={subscription?.subscribedChannel?.avatar.url}
+                            src={subscription?.subscribedChannel?.avatar}
                             channelName={
                                 subscription?.subscribedChannel?.username
                             }
                         />
-                        <h5 className="text-xs">
+                        <h5 className="text-sm">
                             {subscription?.subscribedChannel?.username}
                         </h5>
                     </div>
@@ -48,7 +47,7 @@ function MySubscriptions() {
                             <VideoList
                                 key={subscription?.subscribedChannel?._id}
                                 avatar={
-                                    subscription?.subscribedChannel?.avatar.url
+                                    subscription?.subscribedChannel?.avatar
                                 }
                                 duration={
                                     subscription?.subscribedChannel?.latestVideo

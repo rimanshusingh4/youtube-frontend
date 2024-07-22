@@ -18,7 +18,7 @@ export const toggleSubscription = createAsyncThunk(
             );
             return response.data.data.subscribed;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.statusText);
             throw error;
         }
     }
@@ -33,7 +33,7 @@ export const getUserChannelSubscribers = createAsyncThunk(
             );
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.statusText);
             throw error;
         }
     }
@@ -46,6 +46,7 @@ export const getSubscribedChannels = createAsyncThunk(
             const response = await axiosInstance.get(
                 `subscriptions/u/${subscriberId}`
             );
+            // console.log("Responce ",response)
             return response.data.data;
         } catch (error) {
             return error;

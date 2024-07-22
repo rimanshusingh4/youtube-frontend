@@ -24,7 +24,7 @@ function EditChannel() {
                 <ChannelHeader
                     username={channel?.username}
                     coverImage={channel?.coverImage.url}
-                    avatar={channel?.avatar.url}
+                    avatar={channel?.avatar}
                     subscribedCount={channel?.channelsSubscribedToCount}
                     fullName={channel?.fullName}
                     subscribersCount={channel?.subcribersCount}

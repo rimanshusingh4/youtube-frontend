@@ -149,7 +149,7 @@ function SearchVideos() {
                                 duration={video?.duration}
                                 title={video?.title}
                                 views={video?.views}
-                                avatar={video?.ownerDetails?.avatar?.url}
+                                avatar={video?.ownerDetails?.avatar}
                                 channelName={video?.ownerDetails?.username}
                                 createdAt={video?.createdAt}
                                 videoId={video?._id}

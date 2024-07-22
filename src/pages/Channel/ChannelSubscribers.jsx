@@ -10,7 +10,6 @@ function ChannelSubscribers() {
     const subscribers = useSelector(
         (state) => state.subscription.channelSubscribers
     );
-
     useEffect(() => {
         if (channelId) {
             dispatch(getUserChannelSubscribers(channelId));

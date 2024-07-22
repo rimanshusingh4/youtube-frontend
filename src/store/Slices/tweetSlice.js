@@ -13,7 +13,7 @@ export const createTweet = createAsyncThunk("createTweet", async (content) => {
         toast.success(response.data?.message);
         return response.data.data;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        toast.error(error?.response?.statusText);
         throw error;
     }
 });
@@ -29,7 +29,7 @@ export const editTweet = createAsyncThunk(
             toast.success(response.data.message);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.statusText);
             throw error;
         }
     }
@@ -41,7 +41,7 @@ export const deleteTweet = createAsyncThunk("deleteTweet", async (tweetId) => {
         toast.success(response.data.message);
         return response.data.data.tweetId;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        toast.error(error?.response?.statusText);
         throw error;
     }
 });
@@ -51,7 +51,7 @@ export const getUserTweets = createAsyncThunk( "getUserTweets", async (userId) =
             const response = await axiosInstance.get(`/tweet/user/${userId}`);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.statusText);
             throw error;
         }
     }
